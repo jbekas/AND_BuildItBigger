@@ -5,10 +5,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends ActionBarActivity {
+
+    @BindView(R.id.progress_indicator) ProgressBar progress;
+    @BindView(R.id.tell_joke) Button tellJoke;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +24,13 @@ public class MainActivity extends ActionBarActivity {
         ButterKnife.bind(this);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        progress.setVisibility(View.GONE);
+        tellJoke.setEnabled(true);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,6 +55,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view) {
+        progress.setVisibility(View.VISIBLE);
         new EndpointsAsyncTask().execute(this);
     }
 }

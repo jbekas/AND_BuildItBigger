@@ -15,13 +15,13 @@ import java.io.IOException;
  * Created by jbekas on 9/14/16.
  */
 
-class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
+public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
 
     @Override
     protected String doInBackground(Context... contexts) {
-        if(myApiService == null) {  // Only do this once
+        if (myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
                     .setRootUrl("https://builditbetter-143501.appspot.com/_ah/api/");
             // end options for devappserver
