@@ -23,12 +23,14 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'com.jakewharton.timber:timber:4.1.0'
-    compile 'com.jakewharton:butterknife:8.2.1'
     // Added for AdMob
-    compile 'com.google.android.gms:play-services-ads:9.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.2.1'
     compile project(':JavaJokes')
     compile project(':mylibrary')
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.jakewharton.timber:timber:4.1.0'
+    compile 'com.jakewharton:butterknife:8.2.1'
+    compile 'com.google.android.gms:play-services-ads:9.4.0'
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    compile project(path: ':backend', configuration: 'android-endpoints')
 }
